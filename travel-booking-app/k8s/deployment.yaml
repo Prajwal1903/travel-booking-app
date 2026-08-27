@@ -23,7 +23,7 @@ spec:
 
       - name: travel-booking-app
 
-        image: swapnilwaghmare/travel-booking-app:6
+        image: prajwal1903/travel-booking-app:1
 
         imagePullPolicy: Always
 
@@ -34,8 +34,8 @@ spec:
         env:
 
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://my-project-db.c3ei6g8kcxhq.us-east-1.rds.amazonaws.com:3306/traveldb
-
+          value: jdbc:mysql://travel-db.c58e6yukua40.eu-north-1.rds.amazonaws.com:3306/traveldb
+          
         - name: SPRING_DATASOURCE_USERNAME
           value: admin
 
