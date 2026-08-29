@@ -50,11 +50,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 dir('travel-booking-app') {
-                    sh '''
-                    kubectl apply -f k8s/deployment.yaml
-                    kubectl apply -f k8s/service.yaml
-                    kubectl rollout restart deployment/travel-booking-app
-                    '''
+                    sh 'ansible-playbook ansible/deploy.yml'
                 }
             }
         }
