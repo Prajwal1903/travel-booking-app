@@ -24,4 +24,4 @@ spec:
         - name: SPRING_DATASOURCE_USERNAME
           value: admin
         - name: SPRING_DATASOURCE_PASSWORD
-          value: admin*123
+          value: Admin*123
