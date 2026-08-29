@@ -1,0 +1,22 @@
+---
+- name: Deploy TravelEase to Kubernetes
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Apply Kubernetes Deployment
+      command: kubectl apply -f k8s/deployment.yaml
+      args:
+        chdir: "{{ playbook_dir }}/.."
+
+    - name: Apply Kubernetes Service
+      command: kubectl apply -f k8s/service.yaml
+      args:
+        chdir: "{{ playbook_dir }}/.."
+
+    - name: Restart rollout to pick up latest image
+      command: kubectl rollout restart deployment/travel-booking-app
+
+    - name: Wait for rollout to finish
+      command: kubectl rollout status deployment/travel-booking-app --timeout=120s
